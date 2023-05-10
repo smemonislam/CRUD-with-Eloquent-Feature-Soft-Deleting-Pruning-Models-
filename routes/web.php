@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->except(['show']);
 Route::get('/trashed', [UserController::class, 'trashed'])->name('user-trashed');
 Route::get('/restore/{id}', [UserController::class, 'restore'])->name('user-restore');
 Route::delete('/permanent-delete/{id}', [UserController::class, 'permanentlyDelete'])->name('user-delete');
